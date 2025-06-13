@@ -18,7 +18,7 @@ Admin Dashboard
 1. Запуск API
 
 ```bash
-cd api
+cd AdminDashboardApi
 dotnet run
 ```
 
@@ -29,7 +29,7 @@ API стартует на [http://localhost:5000](http://localhost:5000)
 В отдельном терминале:
 
 ```bash
-cd client
+cd admin-dashboard
 npm install
 npm run dev
 ```
