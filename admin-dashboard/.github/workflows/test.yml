@@ -1,26 +1,30 @@
-name: CI - Run Vitest
+name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Клонируем репозиторий
-        uses: actions/checkout@v4
+      - name: Checkout репозитория
+        uses: actions/checkout@v3
 
-      - name: Устанавливаем Node.js
-        uses: actions/setup-node@v4
+      - name: Установка Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 18
 
-      - name: Устанавливаем зависимости
-        run: npm install
+      - name: Установка зависимостей
+        run: |
+          cd admin-dashboard/admin-dashboard
+          npm install
 
-      - name: Запускаем тесты Vitest
-        run: npm run test -- --coverage
+      - name: Запуск тестов
+        run: |
+          cd admin-dashboard/admin-dashboard
+          npm run test
