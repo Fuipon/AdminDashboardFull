@@ -14,9 +14,9 @@ namespace AdminDashboardApi.Seed
 
             var clients = new[]
             {
-                new Client { Name = "Алиса", Email = "alice@example.com", BalanceT = 100 },
-                new Client { Name = "Женя", Email = "evghenii@example.com", BalanceT = 200 },
-                new Client { Name = "Алексей", Email = "alexey@example.com", BalanceT = 150 },
+                new Client { Name = "Алиса", Email = "alice@example.com", BalanceT = 100, Tags = "New" },
+                new Client { Name = "Женя", Email = "evghenii@example.com", BalanceT = 200, Tags = "New" },
+                new Client { Name = "Алексей", Email = "alexey@example.com", BalanceT = 150, Tags = "New" },
             };
 
             db.Clients.AddRange(clients);

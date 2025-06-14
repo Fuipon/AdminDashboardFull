@@ -9,7 +9,7 @@ namespace AdminDashboardApi.Data
         public AppDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-            optionsBuilder.UseSqlite("Data Source=app.db");
+            optionsBuilder.UseNpgsql("Host=db;Port=5432;Database=admin_dashboard;Username=postgres;Password=postgres");
 
             return new AppDbContext(optionsBuilder.Options);
         }

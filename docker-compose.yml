@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: admin-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpass
+      POSTGRES_DB: admin_dashboard
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - admin-net
+
+  backend:
+    build:
+      context: ./AdminDashboardApi
+    container_name: admin-backend
+    depends_on:
+      - db
+    environment:
+      ASPNETCORE_URLS: "http://+:5000"
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=admin_dashboard;Username=admin;Password=adminpass"
+    ports:
+      - "5000:5000"
+    networks:
+      - admin-net
+
+  frontend:
+    build:
+      context: ./admin-dashboard
+    container_name: admin-frontend
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
+    networks:
+      - admin-net
+
+volumes:
+  pgdata:
+
+networks:
+  admin-net:

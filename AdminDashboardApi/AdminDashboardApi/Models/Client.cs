@@ -6,6 +6,7 @@
         public string Name { get; set; } = "";
         public string Email { get; set; } = "";
         public decimal BalanceT { get; set; }
+        public string Tags { get; set; } = "";
     }
 
 }
