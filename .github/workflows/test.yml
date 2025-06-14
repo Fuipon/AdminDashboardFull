@@ -21,10 +21,10 @@ jobs:
 
       - name: Установка зависимостей
         run: |
-          cd admin-dashboard/admin-dashboard
+          cd C:\Users\12385\source\repos\AdminDashboardFull\admin-dashboard\admin-dashboard
           npm install
 
-      - name: Запуск тестов
+      - name: Запуск Vitest
         run: |
-          cd admin-dashboard/admin-dashboard
-          npm run test
+          cd C:\Users\12385\source\repos\AdminDashboardFull\admin-dashboard\admin-dashboard
+          npx vitest run
