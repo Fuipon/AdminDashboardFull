@@ -3,12 +3,18 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
+    branches:
+      - master
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: admin-dashboard/admin-dashboard
 
     steps:
       - name: Checkout репозитория
@@ -20,11 +26,7 @@ jobs:
           node-version: 18
 
       - name: Установка зависимостей
-        run: |
-          cd C:\Users\12385\source\repos\AdminDashboardFull\admin-dashboard\admin-dashboard
-          npm install
+        run: npm install
 
-      - name: Запуск Vitest
-        run: |
-          cd C:\Users\12385\source\repos\AdminDashboardFull\admin-dashboard\admin-dashboard
-          npx vitest run
+      - name: Запуск тестов Vitest
+        run: npx vitest run
