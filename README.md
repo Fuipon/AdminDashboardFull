@@ -18,10 +18,10 @@
 ### 1. Клонировать репозиторий
 
 ```bash
-git clone [https://github.com/Fuipon/AdminDashboardFull](https://github.com/Fuipon/AdminDashboardFull)
+git clone https://github.com/Fuipon/AdminDashboardFull
 cd AdminDashboardFull
 ```
-2. Запустить всё через Docker Compose
+### 2. Запустить всё через Docker Compose
 ```bash
 docker-compose up --build
 ```
@@ -32,7 +32,9 @@ Backend доступен по адресу: [http://localhost:5000](http://local
 
 Frontend доступен по адресу: [http://localhost:5173](http://localhost:5173)
 
-API эндпойнты
+---
+
+### API эндпойнты
 POST /auth/login — логин, возвращает JWT токен
 
 CRUD /clients 
@@ -43,13 +45,16 @@ GET /rate — текущий курс токенов (авторизация)
 
 POST /rate — обновление курса токенов (авторизация)
 
-Авторизация
+---
+
+### Авторизация
 Для доступа к защищённым эндпойнтам нужно передавать в заголовке
 Authorization: Bearer <JWT_TOKEN>
 
 Токен выдаётся при логине через /auth/login с передачей email и password.
 
-Тесты
+---
+
 Тесты запускаются через Vitest во фронтенде.
 
 Чтобы запустить тесты локально:
@@ -61,7 +66,9 @@ npx vitest run
 ```
 В CI используется GitHub Actions, где тесты запускаются автоматически.
 
-Данные для входа (тестовые)
+---
+
+### Данные для входа (тестовые)
 
 Email: admin@mirra.dev
 Password: admin123
