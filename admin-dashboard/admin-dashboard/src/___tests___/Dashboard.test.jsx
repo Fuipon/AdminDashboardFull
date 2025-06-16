@@ -27,6 +27,5 @@ vi.mock("axios", () => {
 describe("Dashboard", () => {
     it("должен отрендериться без ошибок", async () => {
         render(<Dashboard />);
-        // Добавь проверки, если нужно
     });
 });

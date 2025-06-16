@@ -15,7 +15,7 @@ export default function Login() {
             localStorage.setItem('token', res.data.token);
             navigate('/dashboard');
         } catch (err) {
-            alert('Неверные данные');
+            alert('Invalid data');
         }
     };
 
